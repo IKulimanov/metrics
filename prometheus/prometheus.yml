@@ -1,0 +1,19 @@
+global:
+  scrape_interval: 30s
+  scrape_timeout: 30s
+  evaluation_interval: 30s
+
+
+scrape_configs:
+  -job_name: web
+   metrics_path: /metrics
+
+consul_sd_configs:
+  -server: consul.service.consul:8500
+  -datacenter: dc1
+  -services:
+    - web  
+  -tags:
+    - backend
+
+
